@@ -12,12 +12,22 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfiguration {
 
+//    @Bean
+//    public DataSource getDataSource(){
+//        DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
+//        dataSourceBuilder.driverClassName("org.h2.Driver");
+//        dataSourceBuilder.url("jdbc:h2:mem:course;DB_CLOSE_ON_EXIT=FALSE");
+//        dataSourceBuilder.username("root");
+//        dataSourceBuilder.password("root");
+//        return dataSourceBuilder.build();
+//    }
+
     @Bean
-    @ConditionalOnMissingBean (type = "DataSource")
-    public DataSource getDataSource(){
+    @ConditionalOnMissingBean(type = "DataSource")
+    public DataSource getCustomDataSource(){
         DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName("org.h2.Driver");
-        dataSourceBuilder.url("jdbc:h2:mem:course;DB_CLOSE_ON_EXIT=FALSE");
+        dataSourceBuilder.url("jdbc:h2:mem:course2;DB_CLOSE_ON_EXIT=FALSE");
         dataSourceBuilder.username("root");
         dataSourceBuilder.password("root");
         return dataSourceBuilder.build();

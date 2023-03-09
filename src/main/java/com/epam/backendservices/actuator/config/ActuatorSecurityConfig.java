@@ -47,31 +47,4 @@ public class ActuatorSecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-//    @Bean
-//    public MapReactiveUserDetailsService userDetailsService() {
-//        UserDetails user = User.withDefaultPasswordEncoder()
-//                .username("user")
-//                .password("user")
-//                .roles("USER")
-//                .build();
-//        UserDetails admin = User.withDefaultPasswordEncoder()
-//                .username("admin")
-//                .password("user")
-//                .roles("ADMIN")
-//                .build();
-//        return new MapReactiveUserDetailsService(user, admin);
-//    }
-//
-//    @Bean
-//    public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-//        http
-//                .authorizeExchange(exchanges -> exchanges
-//                        .pathMatchers("/actuator").hasAuthority("ROLE_ADMIN")
-//                        .anyExchange().authenticated()
-//                )
-//                .httpBasic(withDefaults())
-//                .formLogin(withDefaults());
-//        return http.build();
-//    }
 }

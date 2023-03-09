@@ -2,6 +2,7 @@ package com.epam.backendservices.config;
 
 import com.epam.backendservices.model.User;
 import com.epam.backendservices.repository.UserRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -17,11 +18,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DataSourceConfigurationTest {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
+
+//    @Test
+//    public void createUser() {
+//        userRepository.save(new User("Vlad", "Lukiyanets", LocalDate.ofYearDay(2000, 364)));
+//
+//        List<User> users = (List<User>) userRepository.findAll();
+//
+//        assertThat(users.size()).isEqualTo(1);
+//    }
 
     @Test
-    public void createUser() throws InterruptedException {
-
+    public void createUserWithCustomDataSource() {
         userRepository.save(new User("Vlad", "Lukiyanets", LocalDate.ofYearDay(2000, 364)));
 
         List<User> users = (List<User>) userRepository.findAll();
